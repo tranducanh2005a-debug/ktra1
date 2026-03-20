@@ -2,8 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./screens/HomeScreen";
-import ScanScreen from "./screens/ScanScreen";
+import MainTab from "./navigation/MainTab";
+import PaymentScreen from "./screens/PaymentScreen";
+import SuccessScreen from "./screens/SuccessScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,8 +12,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Scan" component={ScanScreen} />
+
+        {/* Bottom Tabs */}
+        <Stack.Screen name="MainTab" component={MainTab} />
+
+        {/* Stack Screens */}
+        <Stack.Screen name="Payment" component={PaymentScreen} />
+        <Stack.Screen name="Success" component={SuccessScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
